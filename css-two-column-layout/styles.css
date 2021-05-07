@@ -10,7 +10,7 @@
 
 .row {
   display: flex;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 .column-full {
@@ -22,8 +22,8 @@
 }
 
 .column-half {
-  flex-basis: 50%;
-  margin: 0 20px;
+  flex-basis: 40%;
+  margin: 0 40px;
 }
 
 .column-third {
@@ -60,6 +60,7 @@
 .button-container {
   display: flex;
   justify-content: center;
+  margin: 30px
 }
 
 button#learn-more {
@@ -68,6 +69,14 @@ button#learn-more {
   padding: 10px 40px;
   border: 2px solid #d14c45;
   color: #d14c45;
+  font-weight: 700;
+  font-size: 100%;
+}
+
+button#learn-more:hover {
+  background-color: grey;
+  cursor: pointer;
+  color: white;
 }
 
 .top-pad {
@@ -76,5 +85,23 @@ button#learn-more {
 
 .title {
   letter-spacing: 0.2rem;
-  font-size: 150%;
+  font-size: 170%;
+  line-height: 0;
+  margin: 30px 0 0 0;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+#open-paragraph {
+  width: 60%;
+}
+
+p.top-pad {
+  margin: 16px 0 0 0;
+}
+
+p.light-font {
+  margin: 0;
 }
