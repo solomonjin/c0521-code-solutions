@@ -171,7 +171,7 @@ div.footer a:visited {
 }
 
 .big-font {
-  font-size: 1.9rem;
+  font-size: 1.7rem;
 }
 
 .hero-text {
@@ -179,6 +179,7 @@ div.footer a:visited {
   padding-bottom: 4rem;
   margin: 0 4rem 4rem;
   width: 55%;
+  font-size: 1.9rem;
 }
 
 div.hero-text > h1,
@@ -195,7 +196,7 @@ div.hero-text > p {
 }
 
 .grey-text {
-  color: rgb(82, 83, 81);
+  color: rgb(80, 81, 79);
 }
 
 a#current-page {
@@ -227,6 +228,22 @@ a#current-page {
 
 .no-text-deco {
   text-decoration: none;
+}
+
+.left-padding {
+  padding: 0 0 0 3rem;
+}
+
+.left-margin {
+  margin: 0 0 0 3rem;
+}
+
+.right-padding {
+  padding: 0 3rem 0 0;
+}
+
+.right-margin {
+  margin: 0 3rem 0 0;
 }
 
 .clinicians {
