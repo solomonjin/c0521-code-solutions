@@ -3,6 +3,10 @@
   font-family: 'Barlow', sans-serif;
 }
 
+body {
+  background-color: rgb(247, 248, 250);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
