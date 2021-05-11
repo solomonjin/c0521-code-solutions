@@ -35,11 +35,20 @@
   flex-basis: calc(100% / 6);
 }
 
+.column-60 {
+  flex-basis: 60%;
+}
+
+.column-40 {
+  flex-basis: 40%;
+}
+
 .nav-item {
   text-decoration: none;
   text-align: center;
   margin: 0;
   padding: 50px 4%;
+  color: grey;
 }
 
 .nav-bar {
@@ -58,6 +67,10 @@ a.list-item:visited {
   color: white;
 }
 
+a.logo {
+  width: 100%;
+}
+
 .footer a {
   text-decoration: none;
 }
@@ -72,6 +85,7 @@ div.footer a:visited {
 
 .img-container {
   display: flex;
+  width: 100%;
 }
 
 .img-container > img {
@@ -104,6 +118,10 @@ div.footer a:visited {
 
 .hero-text p {
   margin: 5rem 0;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .justify-between {
@@ -139,14 +157,21 @@ div.footer a:visited {
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/hero.jpg");
   background-size: cover;
   background-position: center;
   min-height: 800px;
 }
 
+#index-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/hero.jpg");
+}
+
+#product-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/product/product-header.jpg");
+}
+
 .big-font {
-  font-size: 2.1rem;
+  font-size: 1.9rem;
 }
 
 .hero-text {
@@ -156,8 +181,25 @@ div.footer a:visited {
   width: 55%;
 }
 
+div.hero-text > h1,
+div.hero-text > p {
+  margin: 1rem;
+}
+
 .white-text {
   color: white;
+}
+
+.blue-text {
+  color: rgb(77, 113, 139);
+}
+
+.grey-text {
+  color: rgb(82, 83, 81);
+}
+
+a#current-page {
+  color: rgb(77, 113, 139);
 }
 
 .gray-text {
@@ -171,11 +213,20 @@ div.footer a:visited {
 .bold-text {
   font-family: 'Tiempos Headline', sans-serif;
   font-weight: 100;
-  font-size: 170%;
+  font-size: 180%;
+}
+
+.italics {
+  font-style: italic;
+  font-family: 'TiemposHeadline-LightItalic', serif;
 }
 
 .center-text {
   text-align: center;
+}
+
+.no-text-deco {
+  text-decoration: none;
 }
 
 .clinicians {
