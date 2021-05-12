@@ -8,24 +8,30 @@
  */
 function getNumbersToTen() {
   var numbers = [];
-  for (var currentNumber = 1; currentNumber <= 10; currentNumber++) {
+  var currentNumber = 1;
+  while (currentNumber <= 10) {
     numbers.push(currentNumber);
+    currentNumber++;
   }
   return numbers;
 }
 
 function getEvenNumbersToTwenty() {
   var evenNumbers = [];
-  for (var currentNumber = 2; currentNumber <= 20; currentNumber += 2) {
+  var currentNumber = 2;
+  while (currentNumber <= 20) {
     evenNumbers.push(currentNumber);
+    currentNumber += 2;
   }
   return evenNumbers;
 }
 
 function repeatWord(word, times) {
   var repeated = '';
-  for (var count = 1; count <= times; count++) {
+  var count = 1;
+  while (count <= times) {
     repeated += word;
+    count++;
   }
   return repeated;
 }
