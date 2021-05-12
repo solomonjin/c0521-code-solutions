@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-fifth {
+  flex-basis: 20%;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.grey-text {
+  color: grey;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.img-box {
+  width: 90%;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+}
+
+span.no-border {
+  border: none;
+}
+
+.pink-box {
+  border-radius: 5px;
+  background-color: rgb(250, 233, 214);
+  padding: 0 1.5px;
+}
+
+#free-people {
+  background-image: url(images/dress1.jpeg);
+}
+
+#ysl-bag {
+  background-image: url(images/ysl-bag.jpeg);
+}
+
+#tiffany {
+  background-image: url(images/key.jpeg);
+}
+
+#lv-bag {
+  background-image: url(images/lv-bag.jpg);
+}
+
+#reformation {
+  background-image: url(images/dress2.jpeg);
+}
