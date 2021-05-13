@@ -170,6 +170,10 @@ div.footer a:visited {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/product/product-header.jpg");
 }
 
+#implementation-hero-img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/implementation/implementation-header.jpg");
+}
+
 .big-font {
   font-size: 1.7rem;
 }
@@ -180,6 +184,14 @@ div.footer a:visited {
   margin: 0 4rem 4rem;
   width: 55%;
   font-size: 1.9rem;
+}
+
+.smaller-text {
+  font-size: 1.6rem;
+}
+
+.paragraph-text {
+  font-size: 1.3rem;
 }
 
 div.hero-text > h1,
@@ -246,6 +258,10 @@ a#current-page {
   margin: 0 3rem 0 0;
 }
 
+.add-tb-margin {
+  margin: 1rem 0;
+}
+
 .clinicians {
   background-color: rgb(250, 250, 250);
   padding: 4rem 0 15rem;
@@ -291,4 +307,14 @@ li {
 
 .line-space {
   line-height: 1.7;
+}
+
+.implementation-sub-header {
+  position: relative;
+  left: 10px;
+}
+
+#implementation-container {
+  margin: 3rem 0;
+  padding: 3rem 0;
 }
