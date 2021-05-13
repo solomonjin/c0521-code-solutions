@@ -88,6 +88,19 @@ div.footer a:visited {
   width: 100%;
 }
 
+.circle-img-container {
+  max-width: 240px;
+  max-height: 240px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-img-container > img {
+  object-fit: contain;
+  width: 100%;
+}
+
 .img-container > img {
   width: 100%;
 }
@@ -174,12 +187,20 @@ div.footer a:visited {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/implementation/implementation-header.jpg");
 }
 
+#about-hero-img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/about-us/about-us-header.jpg");
+}
+
 .big-font {
   font-size: 1.7rem;
 }
 
+.large-font {
+  font-size: 2.5rem;
+}
+
 .hero-text {
-  padding: 4rem;
+  padding: 3rem;
   padding-bottom: 4rem;
   margin: 0 4rem 4rem;
   width: 55%;
@@ -226,7 +247,11 @@ a#current-page {
 .bold-text {
   font-family: 'Tiempos Headline', sans-serif;
   font-weight: 100;
-  font-size: 180%;
+  font-size: 3rem;
+}
+
+.bold-sans {
+  font-weight: 700;
 }
 
 .italics {
@@ -240,6 +265,10 @@ a#current-page {
 
 .no-text-deco {
   text-decoration: none;
+}
+
+.top-padding {
+  padding: 3rem 0;
 }
 
 .left-padding {
@@ -263,7 +292,6 @@ a#current-page {
 }
 
 .clinicians {
-  background-color: rgb(250, 250, 250);
   padding: 4rem 0 15rem;
   border-bottom: 1px solid lightgray;
 }
@@ -286,6 +314,10 @@ h3.relative {
   background-color: rgb(82, 83, 81);
   color: white;
   padding: 10rem 0;
+}
+
+.light-background {
+  background-color: rgb(250, 250, 250);
 }
 
 ul.list {
@@ -317,4 +349,12 @@ li {
 #implementation-container {
   margin: 3rem 0;
   padding: 3rem 0;
+}
+
+h1.our-team-text {
+  font-size: 2rem;
+}
+
+.top-border {
+  border-top: 1px solid lightgrey;
 }
