@@ -291,6 +291,10 @@ a#current-page {
   margin: 1rem 0;
 }
 
+.add-padding {
+  padding: 1rem;
+}
+
 .clinicians {
   padding: 4rem 0 15rem;
   border-bottom: 1px solid lightgray;
@@ -357,4 +361,68 @@ h1.our-team-text {
 
 .top-border {
   border-top: 1px solid lightgrey;
+}
+
+input.email-text-box {
+  display: block;
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 600px;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.email-text-box::placeholder {
+  text-align: center;
+  font-size: 2rem;
+  color: lightgrey;
+}
+
+.email-text-box:focus {
+  font-size: 2rem;
+  color: grey;
+}
+
+#blog-header {
+  margin-bottom: 0;
+}
+
+#email-container {
+  margin: 1rem 0;
+}
+
+button.sub-button {
+  background-color: #294363;
+  border-radius: 5px;
+  color: white;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  margin: 30px;
+  border: none;
+  text-align: center;
+}
+
+div#blog-header p {
+  position: relative;
+  bottom: 20px;
+}
+
+.blog-image {
+  width: 100%;
+  height: 400px;
+}
+
+.blog-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blog-title {
+  font-size: 3.2rem;
+  font-family: 'Tiempos Headline', sans-serif;
+  font-weight: 100;
+  margin: 1rem 0;
 }
