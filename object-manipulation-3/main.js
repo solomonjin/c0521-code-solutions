@@ -1,23 +1,24 @@
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
 
 var players = createPlayers(4);
-console.log('Players Array:', players);
-
 playGame(players, 2);
 
 function playGame(playerList, numCards) {
   var deck = createDeck();
-  console.log('Card Deck:', deck);
   deck = _.shuffle(deck);
-  console.log('Shuffled Deck:', deck);
   for (var i = 0; i < playerList.length; i++) {
     playerList[i].hand = drawCards(deck, numCards);
   }
-  console.log('Player Hands:', playerList);
+  console.log('Player\'s Hands:', playerList);
   getScores(playerList);
-  console.log('Player Scores:', playerList);
   var winner = getWinner(playerList);
-  console.log(winner);
+  var newPlayerList = checkForTies(playerList, winner);
+  if (newPlayerList.length > 1) {
+    console.log('A tie has occurred so a tie-breaker game will run');
+    playGame(newPlayerList, 2);
+  } else {
+    console.log('The winner is', winner.name);
+  }
 }
 
 function createPlayers(numPlayers) {
@@ -72,6 +73,14 @@ function getWinner(players) {
   return winner;
 }
 
+function checkForTies(players, winner) {
+  var newPlayerList = [];
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].score === winner.score) newPlayerList.push(players[i]);
+  }
+  return newPlayerList;
+}
+
 // STEPS FOR GAME
 // Create an array of 4 player objects each with a name and a hand to hold cards
 // Function to create an array containing a number of players
@@ -100,9 +109,17 @@ function getWinner(players) {
 // assign the value of score to a players.score property. Function doesn't need to return anything
 
 // Check for ties, if there is a tie, have those players draw cards until there is a winner
-// Take the current winner and the playerList as arguments
+// Check for ties first: Take the current winner and the playerList as arguments
+// Create an empty array
 // Loop through the playerList and check if the current winner's score is equal to any of the other players' scores
-// If scores are equal, add player to an empty array
-// If the array is empty, return empty array
+// If scores are equal, return push that player to new array
+// return array
+
+// In main function to run game:
+// After getWinner(), check if there was a tie, store it in a variable, newPlayerList
+// If newPlayerList is NOT an empty array:
+//    Log that a tie has occurred and announce that a tie-breaker will occur
+//    run playGame() again with the new playerList
+// else: log out the winner
 
 // Log winning player to console
