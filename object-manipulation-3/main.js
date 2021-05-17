@@ -16,7 +16,8 @@ function playGame(playerList, numCards) {
   console.log('Player Hands:', playerList);
   getScores(playerList);
   console.log('Player Scores:', playerList);
-  getWinner(playerList);
+  var winner = getWinner(playerList);
+  console.log(winner);
 }
 
 function createPlayers(numPlayers) {
@@ -68,7 +69,7 @@ function getWinner(players) {
   for (var i = 0; i < players.length; i++) {
     if (players[i].score > winner.score) winner = players[i];
   }
-  console.log('The winner is:', winner.name);
+  return winner;
 }
 
 // STEPS FOR GAME
@@ -99,5 +100,9 @@ function getWinner(players) {
 // assign the value of score to a players.score property. Function doesn't need to return anything
 
 // Check for ties, if there is a tie, have those players draw cards until there is a winner
+// Take the current winner and the playerList as arguments
+// Loop through the playerList and check if the current winner's score is equal to any of the other players' scores
+// If scores are equal, add player to an empty array
+// If the array is empty, return empty array
 
 // Log winning player to console
