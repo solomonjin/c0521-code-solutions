@@ -17,7 +17,7 @@ function playGame(playerList, numCards) {
     console.log('A tie has occurred so a tie-breaker game will run');
     playGame(newPlayerList, 2);
   } else {
-    console.log('The winner is', winner.name);
+    console.log('The winner is:', winner.name);
   }
 }
 
@@ -67,7 +67,7 @@ function getScores(players) {
 
 function getWinner(players) {
   var winner = players[0];
-  for (var i = 0; i < players.length; i++) {
+  for (var i = 1; i < players.length; i++) {
     if (players[i].score > winner.score) winner = players[i];
   }
   return winner;
