@@ -12,8 +12,8 @@ function handleInput(event) {
   console.log('value of', event.target.name + ':', event.target.value);
 }
 
-var $userName = document.forms[0].elements[0];
-var $userEmail = document.forms[0].elements[1];
+var $userName = document.querySelector('#user-name');
+var $userEmail = document.querySelector('#user-email');
 var $userMsg = document.querySelector('textArea');
 
 $userName.addEventListener('focus', handleFocus);
