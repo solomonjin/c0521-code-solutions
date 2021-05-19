@@ -3,6 +3,18 @@
   font-family: 'Cutive', serif;
 }
 
+body {
+  margin: 0;
+  padding: 8px;
+}
+
+.input-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .container {
   max-width: 996px;
   margin: 0 auto;
