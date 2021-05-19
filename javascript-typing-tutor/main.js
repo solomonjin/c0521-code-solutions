@@ -7,10 +7,10 @@ var i = 0;
 $characterList[i].className = 'current-letter';
 
 function handleKeyPress(event) {
+  totalPresses++;
   if (event.key === $characterList[i].textContent) {
     $characterList[i].className = 'green';
     i++;
-    totalPresses++;
     if (i === $characterList.length) {
       $accuracy.textContent = 'Accuracy: ' + Math.floor(((totalPresses - numOfMistakes) / totalPresses) * 100) + '%';
       $accuracy.className = 'accuracy show';
@@ -19,7 +19,6 @@ function handleKeyPress(event) {
   } else {
     $characterList[i].className = 'current-letter red';
     numOfMistakes++;
-    totalPresses++;
   }
 }
 
