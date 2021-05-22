@@ -1,10 +1,14 @@
-var $characterList = document.querySelectorAll('span');
+var $characterList;
 var $accuracy = document.querySelector('p');
 var $replay = document.querySelector('.replay');
+var $inputText = document.querySelector('#text-form');
 var totalPresses = 0;
 var numOfMistakes = 0;
 var i = 0;
-$characterList[i].className = 'current-letter';
+
+$replay.addEventListener('click', replay);
+window.addEventListener('keydown', handleKeyPress);
+$inputText.addEventListener('submit', handleSubmit);
 
 function handleKeyPress(event) {
   if (event.key === $characterList[i].textContent) {
@@ -33,8 +37,20 @@ function replay(event) {
   $characterList[i].className = 'current-letter';
 }
 
-$replay.addEventListener('click', replay);
-window.addEventListener('keydown', handleKeyPress);
+function handleSubmit(event) {
+  event.preventDefault();
+  var $textDisplay = document.querySelector('h1');
+  var userInput = $inputText.elements.userText.textContent.split('');
+  var $inputContainer = document.querySelector('container input-box');
+  for (var i = 0; i < userInput.length; i++) {
+    var $newLetter = document.createElement('span');
+    $newLetter.textContent = userInput[i];
+    $textDisplay.appendChild($newLetter);
+  }
+  $inputContainer.className += ' hide';
+  // $characterList = document.querySelectorAll('span');
+  // $characterList[0].className = 'current-letter';
+}
 
 // Query the document for ALL span elements
 // For the FIRST element in NodeList assign it the class (current-letter)

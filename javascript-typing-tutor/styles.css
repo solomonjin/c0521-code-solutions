@@ -15,6 +15,22 @@ body {
   transform: translate(-50%, -50%);
 }
 
+input,
+button {
+  font-family: sans-serif;
+}
+
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 3rem;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
 .container {
   max-width: 996px;
   margin: 0 auto;
@@ -49,6 +65,18 @@ body {
   box-shadow: 0 0 10px 0 rgb(0, 0, 0);
 }
 
+.submit-btn {
+  padding: 1rem 2rem;
+  background-color: rgb(30, 194, 223);
+  color: rgb(51, 50, 50);
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
+  text-align: center;
+  box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+}
+
+.submit-btn:hover,
 .replay:hover {
   cursor: pointer;
 }
@@ -87,4 +115,14 @@ span {
 
 .show {
   display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
 }
