@@ -35,11 +35,20 @@
   flex-basis: calc(100% / 6);
 }
 
+.column-60 {
+  flex-basis: 60%;
+}
+
+.column-40 {
+  flex-basis: 40%;
+}
+
 .nav-item {
   text-decoration: none;
   text-align: center;
   margin: 0;
   padding: 50px 4%;
+  color: grey;
 }
 
 .nav-bar {
@@ -58,6 +67,10 @@ a.list-item:visited {
   color: white;
 }
 
+a.logo {
+  width: 100%;
+}
+
 .footer a {
   text-decoration: none;
 }
@@ -72,6 +85,20 @@ div.footer a:visited {
 
 .img-container {
   display: flex;
+  width: 100%;
+}
+
+.circle-img-container {
+  max-width: 240px;
+  max-height: 240px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-img-container > img {
+  object-fit: contain;
+  width: 100%;
 }
 
 .img-container > img {
@@ -104,6 +131,10 @@ div.footer a:visited {
 
 .hero-text p {
   margin: 5rem 0;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .justify-between {
@@ -139,25 +170,70 @@ div.footer a:visited {
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/hero.jpg");
   background-size: cover;
   background-position: center;
   min-height: 800px;
 }
 
+#index-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/hero.jpg");
+}
+
+#product-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/product/product-header.jpg");
+}
+
+#implementation-hero-img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/implementation/implementation-header.jpg");
+}
+
+#about-hero-img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/about-us/about-us-header.jpg");
+}
+
 .big-font {
-  font-size: 2.1rem;
+  font-size: 1.7rem;
+}
+
+.large-font {
+  font-size: 2.5rem;
 }
 
 .hero-text {
-  padding: 4rem;
+  padding: 3rem;
   padding-bottom: 4rem;
   margin: 0 4rem 4rem;
   width: 55%;
+  font-size: 1.9rem;
+}
+
+.smaller-text {
+  font-size: 1.6rem;
+}
+
+.paragraph-text {
+  font-size: 1.3rem;
+}
+
+div.hero-text > h1,
+div.hero-text > p {
+  margin: 1rem;
 }
 
 .white-text {
   color: white;
+}
+
+.blue-text {
+  color: rgb(77, 113, 139);
+}
+
+.grey-text {
+  color: rgb(80, 81, 79);
+}
+
+a#current-page {
+  color: rgb(77, 113, 139);
 }
 
 .gray-text {
@@ -171,15 +247,55 @@ div.footer a:visited {
 .bold-text {
   font-family: 'Tiempos Headline', sans-serif;
   font-weight: 100;
-  font-size: 170%;
+  font-size: 3rem;
+}
+
+.bold-sans {
+  font-weight: 700;
+}
+
+.italics {
+  font-style: italic;
+  font-family: 'TiemposHeadline-LightItalic', serif;
 }
 
 .center-text {
   text-align: center;
 }
 
+.no-text-deco {
+  text-decoration: none;
+}
+
+.top-padding {
+  padding: 3rem 0;
+}
+
+.left-padding {
+  padding: 0 0 0 3rem;
+}
+
+.left-margin {
+  margin: 0 0 0 3rem;
+}
+
+.right-padding {
+  padding: 0 3rem 0 0;
+}
+
+.right-margin {
+  margin: 0 3rem 0 0;
+}
+
+.add-tb-margin {
+  margin: 1rem 0;
+}
+
+.add-padding {
+  padding: 1rem;
+}
+
 .clinicians {
-  background-color: rgb(250, 250, 250);
   padding: 4rem 0 15rem;
   border-bottom: 1px solid lightgray;
 }
@@ -204,6 +320,10 @@ h3.relative {
   padding: 10rem 0;
 }
 
+.light-background {
+  background-color: rgb(250, 250, 250);
+}
+
 ul.list {
   list-style-type: none;
 }
@@ -223,4 +343,86 @@ li {
 
 .line-space {
   line-height: 1.7;
+}
+
+.implementation-sub-header {
+  position: relative;
+  left: 10px;
+}
+
+#implementation-container {
+  margin: 3rem 0;
+  padding: 3rem 0;
+}
+
+h1.our-team-text {
+  font-size: 2rem;
+}
+
+.top-border {
+  border-top: 1px solid lightgrey;
+}
+
+input.email-text-box {
+  display: block;
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 600px;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.email-text-box::placeholder {
+  text-align: center;
+  font-size: 2rem;
+  color: lightgrey;
+}
+
+.email-text-box:focus {
+  font-size: 2rem;
+  color: grey;
+}
+
+#blog-header {
+  margin-bottom: 0;
+}
+
+#email-container {
+  margin: 1rem 0;
+}
+
+button.sub-button {
+  background-color: #294363;
+  border-radius: 5px;
+  color: white;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  margin: 30px;
+  border: none;
+  text-align: center;
+}
+
+div#blog-header p {
+  position: relative;
+  bottom: 20px;
+}
+
+.blog-image {
+  width: 100%;
+  height: 400px;
+}
+
+.blog-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blog-title {
+  font-size: 2.6rem;
+  font-family: 'Tiempos Headline', sans-serif;
+  font-weight: 100;
+  margin: 1rem 0;
 }
