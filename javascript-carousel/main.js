@@ -55,7 +55,7 @@ function findCurrentDot(view) {
 
 function clickLeftArrow() {
   var $currentImage = getCurrentImage();
-  var $previousImage = $currentImage.previousSibling.previousSibling;
+  var $previousImage = $currentImage.previousElementSibling;
   if ($previousImage) {
     switchView($previousImage.getAttribute('data-view'));
     changeDot(findCurrentDot($previousImage.getAttribute('data-view')));
@@ -69,7 +69,7 @@ function clickLeftArrow() {
 
 function clickRightArrow(currentImage) {
   var $currentImage = getCurrentImage();
-  var $nextImage = $currentImage.nextSibling.nextSibling;
+  var $nextImage = $currentImage.nextElementSibling;
   if ($nextImage) {
     switchView($nextImage.getAttribute('data-view'));
     changeDot(findCurrentDot($nextImage.getAttribute('data-view')));
