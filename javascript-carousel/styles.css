@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-80 {
+  flex-basis: 80%;
+}
+
+.column-10 {
+  flex-basis: 10%;
+}
+
+.hidden {
+  display: none;
+}
+
+.justify-center {
+  justify-content: center;
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.dot {
+  margin: 0 2.5px;
+}
+
+.dot:hover {
+  cursor: pointer;
+}
+
+.arrow {
+  font-size: 2.5rem;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+/*
+.fa-chevron-left {
+
+}
+
+.fa-chevron-right {
+
+} */
