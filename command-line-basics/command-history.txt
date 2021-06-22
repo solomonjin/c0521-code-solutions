@@ -1,0 +1,625 @@
+    1  exit
+    2  whoami
+    3  git config --global user.name "Solomon Jin"
+    4  git config --global user.email "solomonjin135@yahoo.com"
+    5  git config --global --list
+    6  exit
+    7  whoami
+    8  git config --global --list
+    9  exit
+   10  cd ~/repos/c0521-code-solutions/
+   11  git status
+   12  exit
+   13  cd ~/repos/c0521-code-solutions/
+   14  git status
+   15  git checkout -b http-messages
+   16  git status
+   17  cd http-messages/
+   18  git status
+   19  http http://example.com
+   20  http -v http://www.example.com
+   21  http --body GET https://jsonplaceholder.typicode.com/users > users.json
+   22  http --body GET http://example.com > index.html
+   23  git status
+   24  git add ./
+   25  git status
+   26  cd ~/repos/c0521-code-solutions/
+   27  git status
+   28  git commit -m "Completed http-messages"
+   29  git push origin http-messages
+   30  git checkout master
+   31  git checkout http-messages
+   32  git checkout master
+   33  git status
+   34  git checkout master
+   35  git pull origin matser
+   36  git pull origin master
+   37  git status
+   38  git checkout -b javascript-ajax
+   39  cd javascript-ajax/
+   40  git status
+   41  cd ~/repos/c0521-code-solutions/
+   42  git status
+   43  git add javascript-jaax
+   44  git add javascript-ajax/
+   45  git status
+   46  git commit -m "Completed javascript-ajax"
+   47  git push origin javascript-ajax
+   48  git checkout master
+   49  git pull origin master
+   50  git status
+   51  git checkout master
+   52  git pull origin master
+   53  git status
+   54  cd ~/repos
+   55  http https://www.themealdb.com/api/json/v1/1/random.php
+   56  www.themealdb.com/api/json/v1/1/list.php?a=list
+   57  http www.themealdb.com/api/json/v1/1/list.php?a=list
+   58  http https://api.edamam.com/search?q=tonkatsu&app_id=df6bbd8b&app_key=16ab3f81eb63f8435dd3e8d0dd8fbed8
+   59  exit
+   60  cd ~/repos
+   61  git clone git@github.com:solomonjin/ajax-project.git
+   62  cd ajax-project
+   63  npm ci
+   64  git status
+   65  git checkout -b issue-1-search-recipe
+   66  git status
+   67  git commit -m "Progress on home page HTML/CSS"
+   68  git add css/layout.css 
+   69  git add css/reset.css 
+   70  git add css/styles.css 
+   71  git add index.html 
+   72  git add images/menu.png 
+   73  git add images/search.svg 
+   74  git status
+   75  git commit -m "Progress on home page HTML/CSS"
+   76  git push origin issue-1-search-recipe
+   77  git checkout master
+   78  git checkout issue-1-search-recipe
+   79  git status
+   80  git add css/reset.css 
+   81  git add css/styles.css 
+   82  git add index.html 
+   83  git add images/arrow-left.svg 
+   84  git add images/search-blue.svg 
+   85  git status
+   86  git commit -m "Write an HTML and CSS page to design the home page"
+   87  git push origin issue-1-search-recipe
+   88  git status
+   89  git add css/styles.css 
+   90  git add index.html 
+   91  git add js/main.js 
+   92  git commit -m "Completed mobile view of home page"
+   93  git push origin issue-1-search-recipe
+   94  git status
+   95  git add css/layout.css 
+   96  git add css/styles.css 
+   97  git add index.html 
+   98  git commit -m "Completed home page for desktop view"
+   99  git push origin issue-1-search-recipe
+  100  git status
+  101  git add css/layout.css 
+  102  git add css/styles.css 
+  103  git add index.html 
+  104  git commit -m "Progress on search form"
+  105  git push origin issue-1-search-recipe
+  106  git checkout master
+  107  git status
+  108  git checkout issue-1-search-recipe
+  109  git pull origin issue-1-search-recipe
+  110  git status
+  111  git add css/styles.css 
+  112  git add index.html 
+  113  git add js/da
+  114  git add js/data.js 
+  115  git add js/main.js 
+  116  git commit -m "added an ingredient exclusion input to the search form"[B
+  117  git status
+  118  git add js/main.js 
+  119  git commit -m "Added an ingredient exclusion input to the search form"
+  120  git status
+  121  git add js/main.js 
+  122  git commit -m "Added an ingredient exclusion input to the search form"
+  123  git push origin issue-1-search-recipe
+  124  git status
+  125  git add css/styles.css 
+  126  git add index.html 
+  127  git add js/main.js 
+  128  git commit -m "App will generate a URL to query the API based off the user's inputs"
+  129  git commit -m "App will generate a URL to query the API based off the user's inputs" --no-verify
+  130  git push origin issue-1-search-recipe
+  131  git checkout master
+  132  git status
+  133  git add js/data.js 
+  134  git add js/ma
+  135  git add js/main.js 
+  136  git status
+  137  git commit -m "Completed issue-1-search-recipe"
+  138  git push origin issue-1-search-recipe
+  139  git checkout master
+  140  git pull origin master
+  141  git checkout -b issue-2-view-recipes
+  142  git status
+  143  git add index.html 
+  144  git add js/data.js 
+  145  git add js/main.js 
+  146  git status
+  147  git commit -m "Updated API query to v2"
+  148  git push origin issue-2-view-recipes
+  149  git status
+  150  git add js/main.js 
+  151  git commit -m "search data will now be stored locally in between refreshes"
+  152  git push origin issue-2-view-recipes
+  153  git status
+  154  git add css/layout.css 
+  155  git add css/styles.css q
+  156  git add css/styles.css 
+  157  git add index.html 
+  158  git add images/heart
+  159  git add images/heart-no.svg 
+  160  git status
+  161  git add images/heart.svg 
+  162  git status
+  163  git commit -m "Updated the view containers to contain another view for viewing searched recipes. Created an HTML/CSS template for recipes"
+  164  git push origin issue-2-view-recipes
+  165  git status
+  166  git add css/styles.css 
+  167  git add index.html 
+  168  git add js/main.js 
+  169  git commit -m " Create a function that will generate a DOM for each recipe"
+  170  git commit -m " Create a function that will generate a DOM for each recipe" --no-verify
+  171  git push origin issue-2-view-recipes
+  172  git status
+  173  git add css/layout.css 
+  174  git add css/styles.css 
+  175  git add index.html 
+  176  git add js/main.js 
+  177  git status
+  178  git add css/styles.css 
+  179  git status
+  180  git commit -m "Updated DOM generating function to contain margins for each recipe entry"
+  181  git commit -m "Updated DOM generating function to contain margins for each recipe entry" --no-verify
+  182  git push origin issue-2-view-recipes
+  183  git status
+  184  git checkout master
+  185  http curl https://api.edamam.com/search?q=tonkatsu&app_id=df6bbd8b&app_key=16ab3f81eb63f8435dd3e8d0dd8fbed8
+  186  cd ~/repos/ajax-project/
+  187  git status
+  188  git checkout master
+  189  git pull origin master
+  190  git checkout -b issue-3-view-recipe-info
+  191  git status
+  192  git add css/styles.css 
+  193  git add index.html 
+  194  git add js/main.js 
+  195  git status
+  196  git commit -m "Added a transition to the more options button on the search form"
+  197  git push origin issue-3-view-recipe-info
+  198  git checkout master
+  199  git checkout issue-3-view-recipe-info 
+  200  git status
+  201  git add css/styles.css 
+  202  git add js/main.js 
+  203  git status
+  204  git commit -m "Adjusted toggle button sizes to prevent clipping"
+  205  git push origin issue-3-view-recipe-info
+  206  git status
+  207  git add css/styles.css 
+  208  git commit -m "Readjusted button sizes"
+  209  gits tatus
+  210  git status
+  211  git push origin issue-3-view-recipe-info
+  212  git status
+  213  history
+  214  git status
+  215  git add index.html 
+  216  git status
+  217  git add css/styles.css 
+  218  git add index.html 
+  219  git add js/main.js 
+  220  git status
+  221  git commit -m "Progress on generating more info DOM tree"
+  222  git push origin issue-3-view-recipe-info
+  223  git status
+  224  git add css/styles.css 
+  225  git add index.html 
+  226  git add js/main.js 
+  227  git commit -m "Updated DOM generating function to include additional info regarding the recipes"
+  228  git push origin issue-3-view-recipe-info
+  229  git status
+  230  git add css/styles.css 
+  231  git add js/main.js 
+  232  git commit -m "Add an event listener to the recipe list view container so that when the user clicks on a recipe, more info will be revealed. Additional info is collapsible on click"
+  233  git push origin issue-3-view-recipe-info
+  234  git status
+  235  git add js/main.js 
+  236  git commit -m "Updated the DOM generating function to not include a data-index attribute as it was unnecessary"
+  237  git push origin issue-3-view-recipe-info
+  238  git status
+  239  git checkout master
+  240  git checkout issue-3-view-recipe-info
+  241  git checkout master
+  242  git pull origin master
+  243  git status
+  244  git checkout -b issue-4-favorite-recipe
+  245  git status
+  246  git add js/main.js 
+  247  git commit -m "Update the document event listener for clicks so that it will distinguish between the user clicking on the recipe container and the heart icon"
+  248  git add js/main.js 
+  249  git commit -m "Update the document event listener for clicks so that it will distinguish between the user clicking on the recipe container and the heart icon"
+  250  git push origin issue-4-favorite-recipe
+  251  git checkout master
+  252  git checkout issue-4-favorite-recipe
+  253  git status
+  254  git add css/styles.css 
+  255  git add js/main.js 
+  256  git commit -m "Progress on favorite icon"
+  257  git push origin issue-4-favorite-recipe
+  258  git checkout master
+  259  git checkout issue-4-favorite-recipe
+  260  git pull origin issue-4-favorite-recipe
+  261  git checkout master
+  262  git pull origin master
+  263  git checkout -b issue-5-view-favorites
+  264  git status
+  265  git add index.html 
+  266  git add js/main.js 
+  267  git status
+  268  git commit -m "Update the updatePageHeader function to update the page header when the user views their favorited recipes"
+  269  git push origin issue-5-view-favorites
+  270  git status
+  271  git add css/styles.css 
+  272  git add js/data.js 
+  273  git add js/main.js 
+  274  git commit -m "Issue 5 completed. Users can view favorited recipes and remove them"
+  275  git status
+  276  git staatus
+  277  git status
+  278  git push origin issue-5-view-favorites
+  279  git status
+  280  git pull origin issue-5-view-favorites
+  281  git checkout master
+  282  git checkout issue-5-view-favorites
+  283  git status
+  284  git add index.html 
+  285  git add js/main.js 
+  286  git commit -m "Moved the favorites view into a separate view container"
+  287  git push origin issue-5-view-favorites
+  288  git checkout master
+  289  git pull origin master
+  290  http "https://api.edamam.com/api/recipes/v2?excluded=tomatoes&q=philly%20cheese%20steak&app_key=16ab3f81eb63f8435dd3e8d0dd8fbed8&_cont=CHcVQBtNNQphDmgVQ3tAEX4BYVR1GgMGQGZDB2ARa1ByAQUFUXlSATcRa1QiDQNTRjAUATESYwB7BwMFFm0UBWASYwB0BVAVLnlSVSBMPkd5BgMbUSYRVTdgMgksRlpSAAcRXTVGcV84SU4%3D&type=public&app_id=df6bbd8b"
+  291  clear
+  292  git status
+  293  git checkout issue-6-more-recipes
+  294  git checkout -b  issue-6-more-recipes
+  295  git status
+  296  git add css/styles.css 
+  297  git add index.html 
+  298  git add js/main.js 
+  299  git commit -m "Update the recipe-list view container to have a button at the bottom of the page."
+  300  git push origin issue-6-more-recipes
+  301  git status
+  302  git add css/styles.css 
+  303  git add js/main.js 
+  304  git commit -m "The button is toggled to hidden if the number of serach results is less than or equal to 20"
+  305  git commit --amend -m "The button is toggled to hidden if the number of search results is less than or equal to 20"
+  306  git push origin issue-6-more-recipes
+  307  git status
+  308  git add js/main.js 
+  309  git commit -m "User can view more recipes when they press a button"
+  310  git push origin issue-6-more-recipes
+  311  git checkout master
+  312  git pull origin master
+  313  git status
+  314  git pull origin master
+  315  git branch issue-7-add-daily
+  316  git switch issue-7-add-daily
+  317  git status
+  318  git add js/data.js 
+  319  git commit -m "Update the data model to contain an array for a list of daily recipes. #13"
+  320  git push origin issue-7-add-daily
+  321  git status
+  322  git add css/styles.css 
+  323  git add js/main.js 
+  324  git add images/calendar-minus.svg 
+  325  git add images/calendar-plus.svg 
+  326  git status
+  327  git commit -m "Updated the DOM generating function to have an icon for adding/removing recipes from the daily list. When the user presses the icon, the icon should toggle the transparent class."
+  328  git push origin issue-7-add-daily
+  329  git status
+  330  git add js/main.js 
+  331  git commit -m "When the user presses the icon, the given recipe should be added to the daily list if it is not already inside of it. If the given recipe is in dailyRecipes, remove it instead. On refresh, the daily icon will display the proper toggle settings."
+  332  git status
+  333  git push origin issue-7-add-daily
+  334  git checkout master
+  335  git status
+  336  git add css/styles.css 
+  337  git commit -m "Removed some commented out code in the stylesheet"
+  338  git push origin issue-7-add-daily
+  339  git checkout master
+  340  git status
+  341  git pull origin master
+  342  git checkout -b issue-8-view-daily
+  343  git status
+  344  git add js/main.js 
+  345  git commit -m "Fixed the nutrition display so it will display nutrition facts per serving rather than the entire yield."
+  346  git push origin issue-8-view-daily
+  347  git status
+  348  git checkout master
+  349  git status
+  350  git checkout matser
+  351  git checkout master
+  352  git pull origin master
+  353  cd ~/repos/ajax-project/
+  354  git status
+  355  cd ~/repos
+  356  exit
+  357  cd ~/repos/ajax-project/
+  358  git status
+  359  git pull origin master
+  360  git status
+  361  git remote set-url origin git@github.com:solomonjin/recipe-finder.git
+  362  git status
+  363  git config --get remote.origin.url
+  364  git status
+  365  git pull origin master
+  366  git checkout -b issue-9-polish
+  367  git status
+  368  git add index.html 
+  369  git commit -m "Renamed the title of the page to 'Recipe Finder'"
+  370  git push origin issue-9-polish
+  371  git status
+  372  git add images/favicon.ico 
+  373  git commit -m "Replaced the favicon with a more fitting image"
+  374  git push origin issue-9-polish
+  375  git status
+  376  git add css/styles.css 
+  377  git add index.html 
+  378  git add js/main.js 
+  379  git commit -m "User will be shown the home page screen if they click on the Recipe Finder text in the header"
+  380  git push origin issue-9-polish
+  381  git pull origin issue-9-polish
+  382  git status
+  383  git add css/styles.css 
+  384  git add index.html 
+  385  git add js/main.js 
+  386  git commit -m "Form search changed from 'click' event to 'submit' event"
+  387  git push origin issue-9-polish
+  388  git status
+  389  git add css/layout.css 
+  390  git add css/styles.css 
+  391  git add js/main.js 
+  392  git commit -m "Fixed mobile layout for recipe displays"
+  393  git push origin issue-9-polish
+  394  git status
+  395  git add css/layout.css 
+  396  git add css/styles.css 
+  397  git add index.html 
+  398  git add js/main.js 
+  399  git commit -m "Fixed the mobile layout of the search form"
+  400  git push origin issue-9-polish
+  401  git status
+  402  git checkout master
+  403  git status
+  404  git checkout issue-9-polish
+  405  git status
+  406  git add css/
+  407  git status
+  408  git commit -m "
+Moved layout media queries to the layouts.css stylesheet"
+  409  git push origin issue-9-polish
+  410  git checkout master
+  411  git pull origin master
+  412  git status
+  413  git pull origin master
+  414  git checkout -b ajax-polish
+  415  git status
+  416  git add index.html 
+  417  git add js/data.js 
+  418  git add js/main.js 
+  419  git commit -m "Combined the open and close Nav menu functions into one. Re-named daily recipe page to daily nutrition. When a user loads the app for the first time, the app will properly display the home page. Added brief explanation text to the favorites/daily nutrition pages for first-time visitors"
+  420  git push origin ajax-polish
+  421  git status
+  422  git add css/styles.css 
+  423  git add js/main.js 
+  424  git commit -m "Recipe's more info drawer will display when the user clicks on the image as well as the recipe text"
+  425  git push origin ajax-polish
+  426  git status
+  427  git add index.html 
+  428  git add js/main.js 
+  429  git commit -m "Combined navbar 'click' event functions into one."
+  430  git commit -m "Combined navbar 'click' event functions into one." --no-verify
+  431  git push origin ajax-polish
+  432  git status
+  433  git add js/main.js 
+  434  git commit -m "Removed unnecessary functions. Combined search button's click function with clickNavLink"
+  435  git push origin ajax-polish
+  436  git status
+  437  git add js/main.js 
+  438  git commit -m "Renamed clickNavLink function to handleNavigation"
+  439  git push origin ajax-polish
+  440  git checkout master
+  441  git checkout ajax-polish
+  442  git checkout master
+  443  git checkout ajax-polish
+  444  git status
+  445  git add css/styles.css 
+  446  git add index.html 
+  447  git add js/data.js 
+  448  git add js/main.js 
+  449  git commit -m "Added modal displays with instructions to the daily nutrition and favorites pages"
+  450  git push origin ajax-polish
+  451  git status
+  452  git add js/main.js 
+  453  git commit -m "App will now display an instructions modal for users visiting the daily nutrition and favorites pages for the first time."
+  454  git push origin ajax-polish
+  455  git status
+  456  git add js/main.js 
+  457  git commit -m "Implemented GSAP animations for recipe list loading"
+  458  git push origin ajax-polish
+  459  git status
+  460  git add js/main.js 
+  461  git commit -m "Form now properly resets upon a successful search."
+  462  git push origin ajax-polish
+  463  git status
+  464  git add js/main.js 
+  465  git commit -m "Fixed a bug where the more options drawer was not closing properly on form reset"
+  466  git push origin ajax-polish
+  467  git status
+  468  git add index.html 
+  469  git add js/main.js 
+  470  git status
+  471  git commit -m "Implemented GSAP animations. Still in progress"
+  472  git push origin ajax-polish
+  473  git status
+  474  git checkout master
+  475  git status
+  476  git checkout ajax-polish
+  477  git pull origin ajax-polish
+  478  git checkout master
+  479  git pull origin master
+  480  git checkout master
+  481  git status
+  482  git add css/styles.css 
+  483  git add index.html 
+  484  git commit -m "Fixed anchor wrapping of icons on nav bar"
+  485  git push origin master
+  486  cd ~/repos
+  487  git status
+  488  git clone git@github.com:solomonjin/reddit-trade.git
+  489  cd reddit-trade/
+  490  npm install
+  491  npm ci
+  492  clear
+  493  npm install
+  494  npm audit
+  495  npm init
+  496  npm ci
+  497  clear
+  498  cd ~/repos
+  499  cd ajax-project
+  500  git checkout -b transitions
+  501  git status
+  502  git add css/styles.css 
+  503  git add index.html 
+  504  git add js/main.js 
+  505  git commit -m "Added screen transition animations"
+  506  git push origin transitions
+  507  git checkout master
+  508  git status
+  509  git checkout transitions
+  510  git checkout master
+  511  cd ~/repos
+  512  cd c0521-code-solutions/
+  513  git checkout master
+  514  git pull origin master
+  515  git checkout -b es6-const-let
+  516  git status
+  517  git restore javascript-ajax/pokemon.
+  518  git restore javascript-ajax/pokemon.js
+  519  git status
+  520  git add es6-const-let/
+  521  git commit -m "Completed es6-const-let"
+  522  git push origin es6-const-let 
+  523  git checkout master
+  524  git status
+  525  git checkout master
+  526  git pull origin master
+  527  git checkout -b es6-template-literals
+  528  git status
+  529  git add es6-template-literals/
+  530  git status
+  531  git commit -m "Completed es6-template-literals"
+  532  git push origin es6-template-literals 
+  533  git checkout master
+  534  git pull origin master
+  535  git status
+  536  git pull origin master
+  537  git checkout -b es6-destructuring
+  538  git status'
+git status
+'
+  539  git status
+  540  git add es6-destructuring/
+  541  git commit -m "Completed es6-destructuring"
+  542  git push origin es6-destructuring 
+  543  git checkout master
+  544  git pull origin master
+  545  git checkout -b es6-arrow-functions
+  546  git status
+  547  git add es6-arrow-functions/
+  548  git commit -m "Completed es6-arroCompleted es6-arrow-functions"
+  549  git push origin es6-arrow-functions
+  550  git checkout master
+  551  git pull origin master
+  552  git checkout -b command-line-basics
+  553  cd command-line-basics/
+  554  pwd
+  555  man
+  556  man man
+  557  man cat
+  558  cat laziness.txt
+  559  cat impatience.txt 
+  560  cat hubris.txt 
+  561  man cat
+  562  cat laziness.txt impatience.txt hubris.txt 
+  563  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+  564  cat three-virtues.txt 
+  565  man ls
+  566  ls lfz-staff/
+  567  ls -a lfz-staff/
+  568  ls -a -f lfz-staff/
+  569  ls -a -F lfz-staff/
+  570  ls -F lfz-staff/
+  571  man ls
+  572  ls -aF lfz-staff/
+  573  ls -aF lfz-staff > lfz-staff/contentx.txt
+  574  ls -aF lfz-staff > lfz-staff/contents.txt
+  575  cat lfz-staff/contents.txt 
+  576  man pwd
+  577  pwd
+  578  pwd > i-was-here.txt
+  579  ls
+  580  cat i-was-here.txt 
+  581  man echo
+  582  echo 'Hello, World!'
+  583  echo 'Hello, World!' > hello.txt
+  584  cat hello.txt
+  585  ls
+  586  cat hello.txt 
+  587  man touch
+  588  touch tag-youre-it.txt
+  589  touch snoot/boop.txt
+  590  ls snoot/
+  591  man mkdir
+  592  mkdir -p parent
+  593  ls
+  594  mkdir parent
+  595  ls
+  596  man mkdir
+  597  mkdir parent/child/grandchild
+  598  mkdir -p parent/child/grandchild
+  599  ls parent
+  600  ls parent/child
+  601  touch parent/child/grandchild/.gitkeep
+  602  ls -a parent/child/grandchild
+  603  man mv
+  604  mv pokiemans pokemon
+  605  ls 
+  606  man mv
+  607  man rm
+  608  cat lol.txt
+  609  rm lol.txt 
+  610  ls
+  611  ls -a
+  612  ls kill-me/
+  613  cat kill-me/kill-me-now.png 
+  614  rm -r kill-me/
+  615  ls
+  616  man cp
+  617  cp and-then.txt no-and-then.txt
+  618  ls
+  619  cat and-then.txt no-and-then.txt
+  620  man history
+  621  history
+  622  history > command-history.txt
