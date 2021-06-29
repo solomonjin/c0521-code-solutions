@@ -3,16 +3,20 @@ const fs = require('fs');
 
 const app = express();
 
-app.get('/api/notes/:id', (req, res, next) => {
+app.get('/api/notes/:id', (req, res) => {
   const inputID = parseFloat(req.params.id);
   if (inputID <= 0 || !Number.isInteger(inputID)) {
-    next();
     res.status(400).json({ error: 'id must be a positive integer' });
     return;
   }
 
   fs.readFile('data.json', 'utf8', (err, dataJSON) => {
-    if (err) throw err;
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+      return;
+    }
+
     const data = JSON.parse(dataJSON);
 
     if (!(inputID in data.notes)) {
@@ -26,7 +30,11 @@ app.get('/api/notes/:id', (req, res, next) => {
 
 app.get('/api/notes', (req, res) => {
   fs.readFile('data.json', 'utf8', (err, dataJSON) => {
-    if (err) throw err;
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+      return;
+    }
 
     const data = JSON.parse(dataJSON);
     const notesList = [];
