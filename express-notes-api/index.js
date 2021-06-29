@@ -3,6 +3,40 @@ const fs = require('fs');
 
 const app = express();
 
+app.use(express.json());
+
+app.post('/api/notes', (req, res) => {
+  const content = req.body.content;
+  if (!content) {
+    res.status(400).json({ error: 'content is a required field' });
+    return;
+  }
+
+  fs.readFile('data.json', 'utf8', (err, dataJSON) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+      return;
+    }
+
+    const data = JSON.parse(dataJSON);
+    const newEntry = {
+      id: data.nextId,
+      content: content
+    };
+    data.notes[data.nextId] = newEntry;
+    data.nextId++;
+    fs.writeFile('data.json', JSON.stringify(data), err => {
+      if (err) {
+        console.error(err);
+        res.sendStatus(500);
+        return;
+      }
+      res.status(201).json(newEntry);
+    });
+  });
+});
+
 app.get('/api/notes/:id', (req, res) => {
   const inputID = parseFloat(req.params.id);
   if (inputID <= 0 || !Number.isInteger(inputID)) {
@@ -20,7 +54,7 @@ app.get('/api/notes/:id', (req, res) => {
     const data = JSON.parse(dataJSON);
 
     if (!(inputID in data.notes)) {
-      res.status(404).json({ error: 'entry not found' });
+      res.status(404).json({ error: `cannot find note with id ${inputID}` });
       return;
     }
 
