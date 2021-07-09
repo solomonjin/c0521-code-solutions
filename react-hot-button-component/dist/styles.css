@@ -1,0 +1,49 @@
+#root {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  color: white;
+  background-color: grey;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2.5px 2px 2px grey;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.purple {
+  background-color: rgb(53, 28, 116);
+}
+
+.lilac {
+  background-color: rgb(103, 78, 167);
+}
+
+.red {
+  background-color: rgb(224, 102, 102);
+}
+
+.orange {
+  background-color: rgb(246, 178, 107);
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.white {
+  background-color: white;
+}
+
+.orange,
+.yellow,
+.white {
+  color: black;
+}
