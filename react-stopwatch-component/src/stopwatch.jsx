@@ -32,10 +32,27 @@ class Stopwatch extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="timer" onClick={this.clickTimer}>
-          <span>{this.state.count}</span>
-        </div>
+        <Timer onClick={this.clickTimer} count={this.state.count} />
         <i onClick={this.togglePlay} className={this.state.isPlaying ? 'fas fa-pause' : 'fas fa-play'} />
+      </div>
+    );
+  }
+}
+
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.resetTimer = this.resetTimer.bind(this);
+  }
+
+  resetTimer() {
+    this.props.onClick();
+  }
+
+  render() {
+    return (
+      <div className="timer" onClick={this.resetTimer}>
+        <span>{this.props.count}</span>
       </div>
     );
   }
