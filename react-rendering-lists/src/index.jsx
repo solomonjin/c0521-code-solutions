@@ -10,15 +10,10 @@ const pokedex = [
 ];
 
 class PokeList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.pokemonList = props.pokemonList;
-  }
-
   render() {
     return (
       <ul>
-        {this.pokemonList.map(pokemon => <li key={pokemon.number}>{pokemon.name}</li>)}
+        {this.props.pokemonList.map(pokemon => <li key={pokemon.number}>{pokemon.name}</li>)}
       </ul>
     );
   }
