@@ -1,0 +1,79 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+i {
+  font-size: 2rem;
+  margin: 10px 10px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-menu {
+  padding: 1rem 0;
+  height: 100%;
+  width: 0;
+  overflow-x: hidden;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+  white-space: pre;
+  transition: width 0.25s;
+  z-index: 2;
+  position: fixed;
+  background-color: white;
+}
+
+.toggled {
+  width: 350px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-header {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+}
+
+.menu-item {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  transition: background-color 0.25s;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.dimmer {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.hide-dimmer {
+  opacity: 0%;
+  visibility: hidden;
+  transition: visibility 0s 0.25s, opacity 0.25s;
+}
+
+.show-dimmer {
+  opacity: 100%;
+  visibility: visible;
+  transition: opacity 0.25s;
+}
