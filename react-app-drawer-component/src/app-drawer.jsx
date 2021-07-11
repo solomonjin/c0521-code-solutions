@@ -12,7 +12,7 @@ class AppDrawer extends React.Component {
   }
 
   render() {
-    const showMenu = this.state.isToggled ? 'toggled' : '';
+    const showMenu = this.state.isToggled ? 'show-menu' : '';
     const showDimmer = this.state.isToggled ? 'show-dimmer' : 'hide-dimmer';
     return (
       <>
