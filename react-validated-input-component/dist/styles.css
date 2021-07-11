@@ -21,3 +21,7 @@ i {
 .green {
   color: green;
 }
+
+span {
+  white-space: pre;
+}
