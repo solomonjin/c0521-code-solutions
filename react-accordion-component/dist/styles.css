@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.container {
+  width: 300px;
+  margin: 1rem auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: 100%;
+}
+
+.header {
+  background-color: grey;
+  padding: 0 10px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.header:hover {
+  cursor: pointer;
+}
+
+.content {
+  background-color: rgb(177, 174, 174);
+  padding: 0 10px;
+  color: rgb(70, 70, 70);
+  max-height: 0;
+  transition: max-height 0.25s;
+  overflow-y: hidden;
+}
+
+.show {
+  max-height: 175px;
+}
