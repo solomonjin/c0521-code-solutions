@@ -33,7 +33,7 @@ body {
   padding: 0 10px;
   color: rgb(70, 70, 70);
   max-height: 0;
-  transition: max-height 0.25s;
+  transition: max-height 0.5s;
   overflow-y: hidden;
 }
 
