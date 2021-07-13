@@ -32,17 +32,25 @@
 }
 
 .image-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   width: 210px;
-  height: 187px;
+}
+
+.slide-left {
+  transition: transform 0.5s;
+  transform: translateX(-210px);
+}
+
+.slide-right {
+  transition: transform 0.5s;
+  transform: translateX(210px);
 }
 
 img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  opacity: 0%;
-  transition: opacity 1s;
+  width: 210px;
+  height: 210px;
 }
 
 .dot {
@@ -56,8 +64,4 @@ img {
 .dot:hover,
 .arrow:hover {
   cursor: pointer;
-}
-
-.show {
-  opacity: 100%;
 }

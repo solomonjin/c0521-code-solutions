@@ -3,25 +3,35 @@ import React from 'react';
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentIndex: 0 };
+    this.state = { currentIndex: 0, transition: '' };
     this.previousImg = this.previousImg.bind(this);
     this.nextImg = this.nextImg.bind(this);
+    this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
   }
 
   nextImg() {
-    if (this.state.currentIndex + 1 > this.props.images.length - 1) {
-      this.setState({ currentIndex: 0 });
-    } else {
-      this.setState({ currentIndex: this.state.currentIndex + 1 });
-    }
+    this.setState({ transition: ' slide-left' });
   }
 
   previousImg() {
-    if (this.state.currentIndex - 1 < 0) {
-      this.setState({ currentIndex: this.props.images.length - 1 });
-    } else {
-      this.setState({ currentIndex: this.state.currentIndex - 1 });
+    this.setState({ transition: ' slide-right' });
+  }
+
+  handleTransitionEnd(event) {
+    if (this.state.transition === ' slide-left') {
+      if (this.state.currentIndex + 1 > this.props.images.length - 1) {
+        this.setState({ currentIndex: 0 });
+      } else {
+        this.setState({ currentIndex: this.state.currentIndex + 1 });
+      }
+    } else if (this.state.transition === ' slide-right') {
+      if (this.state.currentIndex - 1 < 0) {
+        this.setState({ currentIndex: this.props.images.length - 1 });
+      } else {
+        this.setState({ currentIndex: this.state.currentIndex - 1 });
+      }
     }
+    this.setState({ transition: '' });
   }
 
   render() {
@@ -34,7 +44,10 @@ class Carousel extends React.Component {
           <div className="col-60">
             <div className="row">
               <div className="image-container">
-                <Images currentIndex={this.state.currentIndex} images={this.props.images} />
+                <Images currentIndex={this.state.currentIndex}
+                        images={this.props.images}
+                        transition={this.state.transition}
+                        onTransitionEnd={this.handleTransitionEnd} />
               </div>
             </div>
             <div className="row">
@@ -51,15 +64,21 @@ class Carousel extends React.Component {
   }
 }
 
-class Images extends React.Component {
-  render() {
-    return (
-      <>
-        {this.props.images.map((img, index) => <img key={index} src={img}
-                                className={index === this.props.currentIndex ? 'show' : ''} />)}
-      </>
-    );
+function Images(props) {
+  const imagesLength = props.images.length;
+  let imageList = [];
+  if (props.currentIndex === 0) {
+    imageList = imageList.concat(props.images.slice(imagesLength - 1), props.images.slice(0, 2));
+  } else if (props.currentIndex === imagesLength - 1) {
+    imageList = imageList.concat(props.images.slice(imagesLength - 2), [props.images[0]]);
+  } else {
+    imageList = imageList.concat(props.images.slice(props.currentIndex - 1, props.currentIndex + 2));
   }
+  return (
+    <div className={'row' + props.transition} onTransitionEnd={e => props.onTransitionEnd(e)}>
+      {imageList.map((img, index) => <img key={index} src={img} />)}
+    </div>
+  );
 }
 
 function ImageDots(props) {
