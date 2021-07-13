@@ -3,12 +3,13 @@ import React from 'react';
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentIndex: 0, transition: '', timer: null };
+    this.state = { currentIndex: 0, transition: '', intervalID: null };
     this.previousImg = this.previousImg.bind(this);
     this.nextImg = this.nextImg.bind(this);
     this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
     this.clickDot = this.clickDot.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
   }
 
   nextImg() {
@@ -41,7 +42,15 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ timer: setInterval(this.nextImg, 3000) });
+    const intervalID = setInterval(this.nextImg, 3000);
+    this.setState({ intervalID });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.intervalID === this.state.intervalID) {
+      clearInterval(prevState.intervalID);
+      this.setState({ intervalID: setInterval(this.nextImg, 3000) });
+    }
   }
 
   render() {
