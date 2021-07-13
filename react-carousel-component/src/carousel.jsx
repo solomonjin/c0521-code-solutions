@@ -32,15 +32,18 @@ class Carousel extends React.Component {
             <i className="fas fa-chevron-left arrow" onClick={this.previousImg} />
           </div>
           <div className="col-60">
+            <div className="row">
             <Images currentIndex={this.state.currentIndex} images={this.props.images} />
+            </div>
+            <div className="row">
+              <ImageDots length={this.props.images.length} currentIndex={this.state.currentIndex} />
+            </div>
           </div>
           <div className="col-20">
             <i className="fas fa-chevron-right arrow" onClick={this.nextImg} />
           </div>
         </div>
-        <div className="row">
-          <ImageDots length={this.props.images.length} currentIndex={this.state.currentIndex} />
-        </div>
+
       </div>
     );
   }
