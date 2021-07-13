@@ -42,7 +42,7 @@ img {
   height: 100%;
   width: 100%;
   opacity: 0%;
-  transition: opacity 0.75s;
+  transition: opacity 1s;
 }
 
 .dot {
