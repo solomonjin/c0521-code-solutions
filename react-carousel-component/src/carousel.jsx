@@ -23,18 +23,17 @@ class Carousel extends React.Component {
   handleTransitionEnd(event) {
     if (this.state.transition === ' slide-left') {
       if (this.state.currentIndex + 1 > this.props.images.length - 1) {
-        this.setState({ currentIndex: 0 });
+        this.setState({ currentIndex: 0, transition: '' });
       } else {
-        this.setState({ currentIndex: this.state.currentIndex + 1 });
+        this.setState({ currentIndex: this.state.currentIndex + 1, transition: '' });
       }
     } else if (this.state.transition === ' slide-right') {
       if (this.state.currentIndex - 1 < 0) {
-        this.setState({ currentIndex: this.props.images.length - 1 });
+        this.setState({ currentIndex: this.props.images.length - 1, transition: '' });
       } else {
-        this.setState({ currentIndex: this.state.currentIndex - 1 });
+        this.setState({ currentIndex: this.state.currentIndex - 1, transition: '' });
       }
     }
-    this.setState({ transition: '' });
   }
 
   clickDot(index) {
