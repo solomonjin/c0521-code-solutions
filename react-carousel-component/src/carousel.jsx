@@ -3,10 +3,12 @@ import React from 'react';
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentIndex: 0, transition: '' };
+    this.state = { currentIndex: 0, transition: '', timer: null };
     this.previousImg = this.previousImg.bind(this);
     this.nextImg = this.nextImg.bind(this);
     this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
+    this.clickDot = this.clickDot.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   nextImg() {
@@ -34,6 +36,14 @@ class Carousel extends React.Component {
     this.setState({ transition: '' });
   }
 
+  clickDot(index) {
+    this.setState({ currentIndex: index });
+  }
+
+  componentDidMount() {
+    this.setState({ timer: setInterval(this.nextImg, 3000) });
+  }
+
   render() {
     return (
       <div className="container">
@@ -51,7 +61,9 @@ class Carousel extends React.Component {
               </div>
             </div>
             <div className="row">
-              <ImageDots length={this.props.images.length} currentIndex={this.state.currentIndex} />
+              <ImageDots length={this.props.images.length}
+                         currentIndex={this.state.currentIndex}
+                         clickDot={this.clickDot} />
             </div>
           </div>
           <div className="col-20">
@@ -85,7 +97,7 @@ function ImageDots(props) {
   const imageDots = [];
   for (let i = 0; i < props.length; i++) {
     const dotClass = i === props.currentIndex ? 'fas fa-circle dot' : 'far fa-circle dot';
-    imageDots.push(<i key={i.toString()} className={dotClass} />);
+    imageDots.push(<i key={i.toString()} className={dotClass} onClick={() => props.clickDot(i)} />);
   }
   return imageDots;
 }
