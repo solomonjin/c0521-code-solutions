@@ -27,13 +27,15 @@ class Carousel extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
+        <div className="row container-row">
           <div className="col-20">
             <i className="fas fa-chevron-left arrow" onClick={this.previousImg} />
           </div>
           <div className="col-60">
             <div className="row">
-            <Images currentIndex={this.state.currentIndex} images={this.props.images} />
+              <div className="image-container">
+                <Images currentIndex={this.state.currentIndex} images={this.props.images} />
+              </div>
             </div>
             <div className="row">
               <ImageDots length={this.props.images.length} currentIndex={this.state.currentIndex} />
