@@ -5,8 +5,6 @@ class Carousel extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      previousIndex: props.images.length - 1,
-      nextIndex: 1,
       intervalID: null
     };
     this.clickArrows = this.clickArrows.bind(this);
@@ -14,34 +12,26 @@ class Carousel extends React.Component {
   }
 
   clickArrows(isIncreasing) {
-    let { currentIndex: current, previousIndex: previous, nextIndex: next } = this.state;
+    let { currentIndex: current } = this.state;
     const max = this.props.images.length;
 
     if (isIncreasing) {
       current = parseIndex(current + 1, max);
-      previous = parseIndex(previous + 1, max);
-      next = parseIndex(next + 1, max);
     } else {
       current = parseIndex(current - 1, max);
-      previous = parseIndex(previous - 1, max);
-      next = parseIndex(next - 1, max);
     }
 
     window.location.hash = '#carousel-img-' + current;
 
     this.setState({
-      currentIndex: current,
-      previousIndex: previous,
-      nextIndex: next
+      currentIndex: current
     });
   }
 
   clickDot(index) {
     window.location.hash = '#carousel-img-' + index;
     this.setState({
-      currentIndex: index,
-      previousIndex: parseIndex(index + 1, this.props.images.length),
-      nextIndex: parseIndex(index - 1, this.props.images.length)
+      currentIndex: index
     });
   }
 
