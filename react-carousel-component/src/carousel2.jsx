@@ -5,10 +5,11 @@ class Carousel extends React.Component {
     super(props);
     this.state = {
       currentIndex: 0,
-      intervalID: null
+      timerID: null
     };
     this.clickArrows = this.clickArrows.bind(this);
     this.clickDot = this.clickDot.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
   }
 
   clickArrows(isIncreasing) {
@@ -22,29 +23,30 @@ class Carousel extends React.Component {
     }
 
     window.location.hash = '#carousel-img-' + current;
-
+    const timerID = this.resetTimer();
     this.setState({
-      currentIndex: current
+      currentIndex: current,
+      timerID
     });
   }
 
   clickDot(index) {
     window.location.hash = '#carousel-img-' + index;
+    const timerID = this.resetTimer();
     this.setState({
-      currentIndex: index
+      currentIndex: index,
+      timerID
     });
   }
 
   componentDidMount() {
-    const intervalID = setInterval(() => this.clickArrows(true), 3000);
-    this.setState({ intervalID });
+    const timerID = setTimeout(() => this.clickArrows(true), 3000);
+    this.setState({ timerID });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.intervalID === this.state.intervalID) {
-      clearInterval(prevState.intervalID);
-      this.setState({ intervalID: setInterval(() => this.clickArrows(true), 3000) });
-    }
+  resetTimer() {
+    clearInterval(this.state.timerID);
+    return setTimeout(() => this.clickArrows(true), 3000);
   }
 
   render() {
@@ -55,7 +57,7 @@ class Carousel extends React.Component {
           <Images images={this.props.images}/>
         </div>
         <div className="row dots">
-          <ImageDots length={this.props.images.length}
+          <ImageDots images={this.props.images}
                       currentIndex={this.state.currentIndex}
                       clickDot={this.clickDot} />
         </div>
@@ -80,12 +82,16 @@ function Images(props) {
 }
 
 function ImageDots(props) {
-  const imageDots = [];
-  for (let i = 0; i < props.length; i++) {
-    const dotClass = i === props.currentIndex ? 'fas fa-circle dot' : 'far fa-circle dot';
-    imageDots.push(<i key={i.toString()} className={dotClass} onClick={() => props.clickDot(i)} />);
-  }
-  return imageDots;
+  return (
+    <>
+      {props.images.map((dot, i) => {
+        const dotClass = i === props.currentIndex
+          ? 'fas fa-circle dot'
+          : 'far fa-circle dot';
+        return <i key={i} className={dotClass} onClick={() => props.clickDot(i)} />;
+      })}
+    </>
+  );
 }
 
 function parseIndex(num, max) {
