@@ -1,0 +1,93 @@
+1) User can sign up:
+- Client sends a request to the server to request target '/'
+- Server responds by default with the public/index.html file
+- The bundled module (main.js) gets read by the browser
+- index.jsx runs which then creates an App react element
+- The App's constructor then render runs. Since the default state is set to isAuthorizing,
+the render method will immediately return
+- App's componentDidMount will run next which mounts an event listener to the window
+for any hash changes. The method will also try to get the jwt token from local localStorage.
+If it exists, decode it and set the state, user, to the value of the decoded token otherwise
+it is null. The setState will also set isAuthorizing to false.
+- render will run again, but since isAuthorizing is now false, it will bypass the
+initial guard. Create an object, contextValue, that contains App's user and route states
+as well as its handleSignIn/handleSignOut methods. Pass in the contextValue into the
+context provider. The components Home, Auth, and Navbar are subscribed to the AppContext provider
+(lines 74 ~ 76) so they will be able to receive the context value
+- Navbar will be rendered according to the supplied context. If there is currently no
+user, it will display both sign in and sign up buttons. If a user is provided by the context,
+the navbar will display a sign out button.
+- The PageContainer renders and this.renderPage() gets called as its children
+- The current route is '' so Home will render.
+- Home also receives the contextValue and it checks to see if there is a user provided
+- Since there is user signed in, Redirect will be returned and is provided a prop to="sign-in"
+The Redirect element will set the current url hash to the "to" prop ("sign-in"). Function will
+replace the current url location with a new URL containing the 'sign-in' hash.
+- The browser replaces the document with a fresh index.html and everything renders again, but
+this time App component's state, route, will contain information regarding the '#sign-in' hash
+- When this.renderPage() gets called this time around, the path === 'sign-in' so <Auth /> will be returned and rendered
+- Auth is also subscribed to the AppContext so it has access to contextValues.
+- Since there is currently no user signed in, the guard is bypassed and a sign-in page is returned.
+- If the user clicks any of the links leading to '#sign-up', the process repeats and sign-up page is returned
+containing an AuthForm component.
+- After the user fills out the form and hits submit, the form's onSubmit event
+fires, calling the AuthForm's handleSubmit method which sends a post request to the server
+(target: '/api/auth/sign-up') containing the user's inputs in its request body
+- The server receives the request and proceeds down the middleware stack to find
+one that matches the request target. Once it does so, it verifies that the required fields
+were supplied and then hashes the password. Once the password is hashed, the username and
+the hashed password are inserted into the database. Once the database query is completed and
+the server receives a response from it, the server takes the returning data from the database
+and sends it as the response after converting it into JSON. If any of these async operations
+returned a rejected promise, the catch method will have caught the error and passed it along
+to the server's error handler.
+- After the AuthForm gets a response from the server, it will parse the data, then redirect
+the user back to the sign-in screen
+
+2) User can sign in
+- Once the user fills out the AuthForm and clicks Log In, the AuthForm component's
+onSubmit event will fire and it will send a post request to the server (/api/auth/sign-in)
+- The server will take the given information, verify that the username and password were both
+supplied then query the database for the given user. If the user could not be found in the
+database, a ClientError is thrown.
+- If the given user was found, it verifies that the stored hashedPassword matches the
+user inputted password are matching by hashing the inputted password and comparing them.
+- If they are not matching, an invalid login error is thrown. Otherwise, the server responds
+with an JSON string representing an object containing the user's information as well as
+a signed token. If any of the above async processes were rejected, express would feed
+the error into the server's error handler
+- Once the server's response is received in AuthForm, it will once again parse it
+and see if the response contains the user as well as the token. If so, it calls the
+AuthForm's onSignIn prop which contains the handleSignIn variable supplied by Auth.
+- Auth's handleSignIn refers to the value supplied by the context provider which in turn
+refers to the App component's handleSignIn method. As a result, the App component's handleSignIn
+method gets called with one argument, result (response from server).
+- handleSignIn will then retrieve the token and user from the result and place the token
+in client's localStorage and change the component state's user.
+- Doing so will cause the render method to be called again and so the individual components
+will render again and this.renderPage() is called. Since the route is still currently set to 'sign-in',
+<Auth /> will render. However, since the supplied user in the context is not null, the user
+will be rerouted to ''. The page will render again due to the hashchange event listener changing
+the route state.
+- Since path is now '', renderPage will now return <Home />
+- In the Home component, since the context now provides a truthy user, the home
+screen is returned and rendered.
+
+3) User can stay signed in.
+- After reloading the page, the App component gets mounted and calls its
+constructor, render, and componentDidMount
+- the componentDidMount method will attempt to find the jwt from localStorage and
+if it exists, the token will be decoded to reveal the user's information. The App
+component will then update its state with the new user information
+- This causes render() to run again and since a truthy user is provided in the context,
+the home page will eventually render.
+
+4) User can sign out
+- If a user is signed in, the Navbar component is aware of this via the context provider,
+so it is able to render a sign out button instead of the sign in/sign up buttons.
+- If this button is clicked, its onClick event handler fires which delegates it to the variable handleSignOut
+which was provided by the context provider and refers to the App component's handleSignOut method.
+- Once App's handleSignOut method gets called, the token is removed from the client's localStorage, and
+the state is updated so that the user is null.
+- this state change causes App's render() method to run again and since the context now
+provides a null user, the sign-in page will eventually render.
