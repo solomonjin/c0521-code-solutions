@@ -10,16 +10,16 @@ class Carousel extends React.Component {
     this.clickArrows = this.clickArrows.bind(this);
     this.clickDot = this.clickDot.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
+    this.parseIndex = this.parseIndex.bind(this);
   }
 
   clickArrows(isIncreasing) {
     let { currentIndex: current } = this.state;
-    const max = this.props.images.length;
 
     if (isIncreasing) {
-      current = parseIndex(current + 1, max);
+      current = this.parseIndex(current + 1);
     } else {
-      current = parseIndex(current - 1, max);
+      current = this.parseIndex(current - 1);
     }
 
     window.location.hash = '#carousel-img-' + current;
@@ -47,6 +47,12 @@ class Carousel extends React.Component {
   resetTimer() {
     clearInterval(this.state.timerID);
     return setTimeout(() => this.clickArrows(true), 3000);
+  }
+
+  parseIndex(num) {
+    if (num < 0) return this.props.images.length - 1;
+    if (num >= this.props.images.length) return 0;
+    return num;
   }
 
   render() {
@@ -92,12 +98,6 @@ function ImageDots(props) {
       })}
     </>
   );
-}
-
-function parseIndex(num, max) {
-  if (num < 0) return max - 1;
-  if (num >= max) return 0;
-  return num;
 }
 
 export default Carousel;
