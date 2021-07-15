@@ -9,61 +9,58 @@ class Carousel extends React.Component {
       nextIndex: 1,
       intervalID: null
     };
-    this.previousImg = this.previousImg.bind(this);
-    this.nextImg = this.nextImg.bind(this);
-    // this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
+    this.clickArrows = this.clickArrows.bind(this);
     this.clickDot = this.clickDot.bind(this);
-    // this.componentDidMount = this.componentDidMount.bind(this);
-    // this.componentDidUpdate = this.componentDidUpdate.bind(this);
   }
 
-  nextImg() {
-    // condition if at beginning/end of images array
-    this.setState({ currentIndex: this.state.currentIndex + 1 });
-  }
+  clickArrows(isIncreasing) {
+    let { currentIndex: current, previousIndex: previous, nextIndex: next } = this.state;
+    const max = this.props.images.length;
 
-  previousImg() {
-    this.setState({ currentIndex: this.state.currentIndex - 1 });
-  }
+    if (isIncreasing) {
+      current = parseIndex(current + 1, max);
+      previous = parseIndex(previous + 1, max);
+      next = parseIndex(next + 1, max);
+    } else {
+      current = parseIndex(current - 1, max);
+      previous = parseIndex(previous - 1, max);
+      next = parseIndex(next - 1, max);
+    }
 
-  // handleTransitionEnd(event) {
-  //   if (this.state.transition === ' slide-left') {
-  //     if (this.state.currentIndex + 1 > this.props.images.length - 1) {
-  //       this.setState({ currentIndex: 0, transition: '' });
-  //     } else {
-  //       this.setState({ currentIndex: this.state.currentIndex + 1, transition: '' });
-  //     }
-  //   } else if (this.state.transition === ' slide-right') {
-  //     if (this.state.currentIndex - 1 < 0) {
-  //       this.setState({ currentIndex: this.props.images.length - 1, transition: '' });
-  //     } else {
-  //       this.setState({ currentIndex: this.state.currentIndex - 1, transition: '' });
-  //     }
-  //   }
-  // }
+    window.location.hash = '#carousel-img-' + current;
+
+    this.setState({
+      currentIndex: current,
+      previousIndex: previous,
+      nextIndex: next
+    });
+  }
 
   clickDot(index) {
-    this.setState({ currentIndex: index });
+    window.location.hash = '#carousel-img-' + index;
+    this.setState({
+      currentIndex: index,
+      previousIndex: parseIndex(index + 1, this.props.images.length),
+      nextIndex: parseIndex(index - 1, this.props.images.length)
+    });
   }
 
-  // componentDidMount() {
-  //   const intervalID = setInterval(this.nextImg, 3000);
-  //   this.setState({ intervalID });
-  // }
+  componentDidMount() {
+    const intervalID = setInterval(() => this.clickArrows(true), 3000);
+    this.setState({ intervalID });
+  }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.intervalID === this.state.intervalID) {
-  //     clearInterval(prevState.intervalID);
-  //     this.setState({ intervalID: setInterval(this.nextImg, 3000) });
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.intervalID === this.state.intervalID) {
+      clearInterval(prevState.intervalID);
+      this.setState({ intervalID: setInterval(() => this.clickArrows(true), 3000) });
+    }
+  }
 
   render() {
     return (
       <div className="container">
-        <a href={'#carousel-img-' + (this.state.previousIndex)}>
-          <i className="fas fa-chevron-left arrow left-arrow" onClick={this.previousImg} />
-        </a>
+        <i className="fas fa-chevron-left arrow left-arrow" onClick={() => this.clickArrows(false)} />
         <div className="image-row">
           <Images images={this.props.images}/>
         </div>
@@ -72,9 +69,7 @@ class Carousel extends React.Component {
                       currentIndex={this.state.currentIndex}
                       clickDot={this.clickDot} />
         </div>
-        <a href={'#carousel-img-' + (this.state.nextIndex)}>
-          <i className="fas fa-chevron-right arrow right-arrow" onClick={this.nextImg} />
-        </a>
+        <i className="fas fa-chevron-right arrow right-arrow" onClick={() => this.clickArrows(true)} />
       </div>
     );
   }
@@ -101,6 +96,12 @@ function ImageDots(props) {
     imageDots.push(<i key={i.toString()} className={dotClass} onClick={() => props.clickDot(i)} />);
   }
   return imageDots;
+}
+
+function parseIndex(num, max) {
+  if (num < 0) return max - 1;
+  if (num >= max) return 0;
+  return num;
 }
 
 export default Carousel;

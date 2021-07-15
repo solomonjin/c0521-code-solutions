@@ -41,6 +41,10 @@
   scroll-snap-type: x mandatory;
 }
 
+.image-row::-webkit-scrollbar {
+  width: 0;
+}
+
 .slide-left {
   transition: transform 0.5s;
   transform: translateX(-210px);
