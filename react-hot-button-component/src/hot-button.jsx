@@ -1,26 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class HotButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { clicks: 0 };
-    this.handleClick = this.handleClick.bind(this);
-  }
+function HotButton(props) {
+  const [count, setCount] = useState(0);
+  let color = '';
+  if (count > 18) color = 'white';
+  else if (count > 15) color = 'yellow';
+  else if (count > 12) color = 'orange';
+  else if (count > 9) color = 'red';
+  else if (count > 6) color = 'lilac';
+  else if (count > 3) color = 'purple';
 
-  handleClick() {
-    this.setState({ clicks: this.state.clicks + 1 });
-  }
-
-  render() {
-    if (this.state.clicks < 3) return <button onClick={this.handleClick}>Hot Button</button>;
-    else if (this.state.clicks < 6) return <button className="purple" onClick={this.handleClick}>Hot Button</button>;
-    else if (this.state.clicks < 9) return <button className="lilac" onClick={this.handleClick}>Hot Button</button>;
-    else if (this.state.clicks < 12) return <button className="red" onClick={this.handleClick}>Hot Button</button>;
-    else if (this.state.clicks < 15) return <button className="orange" onClick={this.handleClick}>Hot Button</button>;
-    else if (this.state.clicks < 18) return <button className="yellow" onClick={this.handleClick}>Hot Button</button>;
-    else return <button className="white" onClick={this.handleClick}>Hot Button</button>;
-
-  }
+  return <button className={color} onClick={() => setCount(count + 1)}>Hot Button</button>;
 }
 
 export { HotButton };
