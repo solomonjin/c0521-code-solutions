@@ -1,36 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class ToggleSwitch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isToggled: false };
-    this.handleClick = this.handleClick.bind(this);
-  }
+function ToggleSwitch(props) {
+  const [isToggled, setIsToggled] = useState(false);
+  const handleClick = () => {
+    setIsToggled(!isToggled);
+  };
 
-  handleClick() {
-    this.setState({ isToggled: !this.state.isToggled });
-  }
+  const toggleClass = isToggled ? 'toggle-switch toggled' : 'toggle-switch';
+  const circleClass = isToggled ? 'circle circle-on' : 'circle';
+  const label = isToggled ? 'ON' : 'OFF';
 
-  render() {
-    if (this.state.isToggled) {
-      return (
-        <div className="container">
-          <div className="toggle-switch toggled" onClick={this.handleClick}>
-            <div className="circle circle-on"></div>
-          </div>
-          <span>ON</span>
-        </div>
-      );
-    }
-    return (
-      <div className="container">
-        <div className="toggle-switch" onClick={this.handleClick}>
-          <div className="circle"></div>
-        </div>
-        <span>OFF</span>
+  return (
+    <div className="container">
+      <div className={toggleClass} onClick={handleClick}>
+        <div className={circleClass}></div>
       </div>
-    );
-  }
+      <span>{label}</span>
+    </div>
+  );
 }
 
 export { ToggleSwitch };
