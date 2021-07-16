@@ -24,8 +24,11 @@ export default class App extends React.Component {
     };
     fetch('/api/uploads', req)
       .then(res => {
-        console.log(res.body);
-        event.target.reset();
+        return res.json()
+          .then(result => {
+            console.log(result);
+            event.target.reset();
+          });
       })
       .catch(err => console.error(err));
   }
